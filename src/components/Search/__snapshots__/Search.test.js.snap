@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `"<form class=\\"Search-form\\"><input data-testid=\\"search\\" placeholder=\\"Search\\" type=\\"text\\" class=\\"Search-control form-control\\" value=\\"\\"></form>"`;
+
+exports[`should render 1`] = `"<form class=\\"Search-form\\"><input data-testid=\\"search\\" placeholder=\\"Search\\" type=\\"text\\" class=\\"Search-control form-control\\" value=\\"\\"></form>"`;
