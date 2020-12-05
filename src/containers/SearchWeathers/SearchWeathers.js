@@ -15,8 +15,7 @@ const SearchWeathers = () => {
         <Container className="Weather-container" fluid>
             <Row className="justify-content-md-center">
                 <Col>
-                    {' '}
-                    <h1>WEATHER FORECAST</h1>{' '}
+                    <h1>WEATHER FORECAST</h1>
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
@@ -27,8 +26,7 @@ const SearchWeathers = () => {
             {isLoading && (
                 <Row className="justify-content-md-center">
                     <Col>
-                        {' '}
-                        <Spinner animation="border" variant="primary" />{' '}
+                        <Spinner animation="border" variant="primary" />
                     </Col>
                 </Row>
             )}

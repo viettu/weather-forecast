@@ -10,9 +10,9 @@ const WeatherItem = ({applicableDate, minTemp, maxTemp}) => {
     return (
         <div className="WeatherItem-container">
             <h3>{isoToDayWeek(applicableDate)}</h3>
-            <div className="WeatherItem-temperature">{`${formatTemperature(minTemp)} - ${formatTemperature(
-                maxTemp
-            )} ℃`}</div>
+            <div className="WeatherItem-temperature">
+                {`${formatTemperature(minTemp)} - ${formatTemperature(maxTemp)} ℃`}
+            </div>
         </div>
     )
 }
