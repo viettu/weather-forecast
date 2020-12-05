@@ -7,20 +7,18 @@ import isoToDayWeek from '../../helpers/isoToDayWeek'
 import formatTemperature from '../../helpers/formatTemperature'
 
 const WeatherItem = ({applicableDate, minTemp, maxTemp}) => {
-    return (
-        <div className="WeatherItem-container">
-            <h3>{isoToDayWeek(applicableDate)}</h3>
-            <div className="WeatherItem-temperature">
-                {`${formatTemperature(minTemp)} - ${formatTemperature(maxTemp)} ℃`}
-            </div>
-        </div>
-    )
+  return (
+    <div className="WeatherItem-container">
+      <h3>{isoToDayWeek(applicableDate)}</h3>
+      <div className="WeatherItem-temperature">{`${formatTemperature(minTemp)} - ${formatTemperature(maxTemp)} ℃`}</div>
+    </div>
+  )
 }
 
 WeatherItem.propTypes = {
-    applicableDate: PropTypes.string,
-    minTemp: PropTypes.number,
-    maxTemp: PropTypes.number,
+  applicableDate: PropTypes.string,
+  minTemp: PropTypes.number,
+  maxTemp: PropTypes.number,
 }
 
 export default WeatherItem

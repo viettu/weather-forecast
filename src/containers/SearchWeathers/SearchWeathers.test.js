@@ -5,5 +5,5 @@ import '@testing-library/jest-dom'
 import SearchWeathers from './SearchWeathers'
 
 test('renders without crashing', () => {
-    render(<SearchWeathers />)
+  render(<SearchWeathers />)
 })

@@ -1,33 +1,33 @@
 .Weather-container {
-    display: flex;
-    flex-direction: column;
-    padding-top: 100px;
-    align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  align-items: stretch;
 }
 
 .Weather-search {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .Weather-list {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .Weather-container h1 {
-    padding: 50px;
-    color: cadetblue;
+  padding: 50px;
+  color: cadetblue;
 }
 
 .Weather-list h2 {
-    color: cadetblue;
+  color: cadetblue;
 }
 
 .Weather-list h3 {
-    color: gray;
+  color: gray;
 }
 
 .Weather-error {
-    color: red;
+  color: red;
 }

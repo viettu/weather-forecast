@@ -1,13 +1,37 @@
-// import {getLocations} from '../api/metaWeatherAPI'
+import {renderHook, cleanup} from '@testing-library/react-hooks'
+import * as metaWeatherAPI from '../api/metaWeatherAPI'
+import {mockLocations, mockWeathers} from '../tests/mockTestingData'
+import useFetchWeatherData from './useFetchWeatherData'
 
-// // jest.mock('../api/metaWeatherAPI');
+afterEach(() => {
+  jest.clearAllMocks()
+  cleanup()
+})
 
-// // afterEach(() => {
-// //     jest.un();
-// // })
+test('loading success', async () => {
+  jest.spyOn(metaWeatherAPI, 'getLocations').mockImplementation(() => Promise.resolve(mockLocations))
+  jest.spyOn(metaWeatherAPI, 'getWeathers').mockImplementation(() => Promise.resolve(mockWeathers))
 
-// test('HHH', async () => {
-//     console.log(getLocations)
-//     console.log(await getLocations('jkdfj jkdf'))
-//     expect(1).toBeTruthy()
-// })
+  const {result, waitForNextUpdate} = renderHook(() => useFetchWeatherData('Houston'))
+  expect(result.current.isLoading).toBeTruthy()
+
+  await waitForNextUpdate()
+
+  expect(result.current.isLoading).toBeFalsy()
+  expect(result.current.locationTitle).toEqual('Houston')
+  expect(result.current.weatherForecasts.length).toEqual(5)
+})
+
+test('loading failure', async () => {
+  jest.spyOn(metaWeatherAPI, 'getLocations').mockImplementation(() => Promise.reject('ERROR'))
+
+  const {result, waitForNextUpdate} = renderHook(() => useFetchWeatherData('Houston'))
+  expect(result.current.isLoading).toBeTruthy()
+
+  await waitForNextUpdate()
+
+  expect(result.current.error).toEqual('ERROR')
+  expect(result.current.isLoading).toBeFalsy()
+  expect(result.current.locationTitle).toBeFalsy()
+  expect(result.current.weatherForecasts).toEqual([])
+})
