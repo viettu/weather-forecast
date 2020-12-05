@@ -1,37 +1,29 @@
-import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import React from 'react'
+import {render, screen, fireEvent} from '@testing-library/react'
+import '@testing-library/jest-dom'
+import Search from './Search'
 
-import Search from "./Search";
+// test("renders without crashing", () => {
+//   render(<Search />, container);
+//   // expect(container.innerHTML).toMatchSnapshot();
+// });
 
-let container = null;
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+test('should display default placeholder', () => {
+    const {queryByPlaceholderText} = render(<Search />)
+    expect(queryByPlaceholderText('Search')).toBeVisible()
+})
 
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
+test('should display placeholder', () => {
+    const {queryByPlaceholderText} = render(<Search placeholder="Enter a city" />)
+    expect(queryByPlaceholderText('Enter a city')).toBeVisible()
+})
 
-it("renders without crashing", () => {
-  act(() => {
-    render(<Search />, container);
-  });
+test('should trigger onSearch callback', () => {
+    const handleSearch = jest.fn()
+    render(<Search onSearch={handleSearch} />)
 
-  expect(container.innerHTML).toMatchSnapshot();
-});
+    const searchFrom = screen.getByTestId('search-form')
+    fireEvent.submit(searchFrom)
 
-it("display placeholder", () => {
-  act(() => {
-    render(<Search />, container);
-  });
-  expect(container.querySelector("input").placeholder).toBe("Search");
-
-  act(() => {
-    render(<Search placeholder="Enter a city" />, container);
-  });
-  expect(container.querySelector("input").placeholder).toBe("Enter a city");
-});
+    expect(handleSearch).toHaveBeenCalledTimes(1)
+})

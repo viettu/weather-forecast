@@ -2,13 +2,14 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended",
+        "prettier"
     ],
     "env": {
         "browser": true,
         "jest": true,
-        "es6": true,
-        "node": true
+        "es6": true
     },
     "parserOptions": {
         "sourceType": "module",
@@ -30,7 +31,9 @@
         "react-hooks/exhaustive-deps": "warn",
         "react/prop-types": [1, {
             "ignore": ["children"]
-        }]
+        }],
+        "no-console": "error",
+        "no-eval": "error"
     },
     "settings": {
         "react": {

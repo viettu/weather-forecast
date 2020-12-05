@@ -1,3 +1,3 @@
-export default (temp) => {
-    return temp ? Number(temp).toFixed(1) : '';
+export default (temperature) => {
+    return temperature ? Number(temperature).toFixed(1) : ''
 }
