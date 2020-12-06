@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing 1`] = `
+<ul
+  class="WeatherList-container"
+/>
+`;
+
+exports[`snapshot testing 2`] = `
+<ul
+  class="WeatherList-container"
+>
+  <li
+    class="WeatherList-item"
+  >
+    <div
+      class="WeatherItem-container"
+    >
+      <h3>
+        Wednesday
+      </h3>
+      <div
+        class="WeatherItem-temperature"
+      >
+        24.0 - 29.3 ℃
+      </div>
+    </div>
+  </li>
+</ul>
+`;

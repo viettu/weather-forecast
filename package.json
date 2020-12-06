@@ -24,6 +24,11 @@
     "format:test": "prettier \"**/*.+(js|jsx|json|css|md)\" --list-different",
     "format:write": "prettier \"**/*.+(js|jsx|json|css|md)\" --write"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -32,6 +37,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   },
@@ -58,6 +64,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@testing-library/react-hooks": "^3.4.2",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",

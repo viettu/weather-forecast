@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing 1`] = `
+<form
+  class="Search-form"
+  data-testid="search-form"
+>
+  <div
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <input
+        class="Search-control form-control"
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`snapshot testing 2`] = `
+<form
+  class="Search-form"
+  data-testid="search-form"
+>
+  <div
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <input
+        class="Search-control form-control"
+        placeholder="Custom placeholder"
+        type="text"
+        value=""
+      />
+      <button
+        class="btn btn-primary"
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+</form>
+`;

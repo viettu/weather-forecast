@@ -1,4 +1,5 @@
-.Search-form > .Search-control {
-  display: block;
-  width: 100%;
+.Search-form .Search-control {
+    display: block;
+    flex: 1;
+    margin-right: 10px;
 }
