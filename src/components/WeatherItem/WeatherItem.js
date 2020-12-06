@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './WeatherItem.css';
-
 import isoToDayWeek from '../../helpers/isoToDayWeek';
 import formatTemperature from '../../helpers/formatTemperature';
+
+import './WeatherItem.css';
 
 const WeatherItem = ({applicableDate, minTemp, maxTemp}) => {
     return (

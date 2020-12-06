@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
-
-import './SearchWeathers.css';
+import {Col, Container, Row, Spinner} from 'react-bootstrap';
 
 import useFetchWeatherData from '../../hooks/useFetchWeatherData';
 import Search from '../../components/Search/Search';
 import WeatherList from '../../components/WeatherList/WeatherList';
-import {Col, Container, Row, Spinner} from 'react-bootstrap';
+import withErrorMessage from '../../hocs/withErrorMessage';
+
+import './SearchWeathers.css';
+
+const WeatherListWithErrorMessage = withErrorMessage(WeatherList);
 
 const SearchWeathers = () => {
     const [location, setLocation] = useState('');
@@ -42,7 +45,10 @@ const SearchWeathers = () => {
                         }. Please try again later!`}</div>
                     )}
                     {weatherForecasts.length > 0 && <h2>{locationTitle}</h2>}
-                    <WeatherList weathers={weatherForecasts} />
+                    <WeatherListWithErrorMessage
+                        weathers={weatherForecasts}
+                        errorMessage={error ? `Something went wrong when loading weathers. Please try again later!` : ''}
+                    />
                 </Col>
             </Row>
         </Container>

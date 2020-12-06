@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './WeatherList.css';
-
 import WeatherItem from '../WeatherItem/WeatherItem';
+
+import './WeatherList.css';
 
 const WeatherList = ({weathers}) => {
     const list = (weathers || []).map((weather) => {
