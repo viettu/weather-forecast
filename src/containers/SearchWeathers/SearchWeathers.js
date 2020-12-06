@@ -14,6 +14,10 @@ const SearchWeathers = () => {
     const [location, setLocation] = useState('');
     const {locationTitle, weatherForecasts, isLoading, error} = useFetchWeatherData(location);
 
+    const errorMessage = error
+    ? `Something went wrong when loading ${locationTitle || location}. Please try again later!`
+    : '';
+
     return (
         <Container className="Weather-container" fluid>
             <Row className="justify-content-md-center">
@@ -39,15 +43,11 @@ const SearchWeathers = () => {
             )}
             <Row className="justify-content-md-center">
                 <Col md={8} className="Weather-list">
-                    {error && (
-                        <div className="Weather-error">{`Something went wrong when loading ${
-                            locationTitle || location
-                        }. Please try again later!`}</div>
-                    )}
                     {weatherForecasts.length > 0 && <h2>{locationTitle}</h2>}
                     <WeatherListWithErrorMessage
                         weathers={weatherForecasts}
-                        errorMessage={error ? `Something went wrong when loading weathers. Please try again later!` : ''}
+                        errorMessage={errorMessage}
+                        errorClass="Weather-error"
                     />
                 </Col>
             </Row>

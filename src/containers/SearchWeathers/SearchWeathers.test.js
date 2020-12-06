@@ -69,6 +69,6 @@ test('should show the error when loading failure', async () => {
     await waitForElementToBeRemoved(() => screen.getByTestId('loading-indicator'));
 
     expect(
-        screen.getByText('Something went wrong when loading weathers. Please try again later!', {selector: 'div'})
+        screen.getByText('Something went wrong when loading Houston. Please try again later!', {selector: 'div'})
     ).toBeVisible();
 });

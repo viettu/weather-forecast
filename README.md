@@ -13,7 +13,9 @@
 ## SCRIPTs
 
 -   `npm install` to install dependencies
+
 -   `npm start` to serve local
+
 -   `npm test` to run Jest tests
 
 -   `npm lint` run lint with ESLint
