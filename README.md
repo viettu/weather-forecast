@@ -2,6 +2,8 @@
 
 ## CORE TECHs
 
+-   React and React hooks
+
 -   API from https://www.metaweather.com/api/ get via cors proxy https://cors-anywhere.herokuapp.com
 
 -   Bootstrap React UI framework
