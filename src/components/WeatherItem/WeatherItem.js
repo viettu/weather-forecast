@@ -19,8 +19,8 @@ const WeatherItem = ({applicableDate, minTemp, maxTemp}) => {
 
 WeatherItem.propTypes = {
     applicableDate: PropTypes.string,
-    minTemp: PropTypes.number,
-    maxTemp: PropTypes.number,
+    minTemp: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    maxTemp: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default WeatherItem;
