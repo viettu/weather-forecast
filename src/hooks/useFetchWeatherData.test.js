@@ -1,5 +1,5 @@
 import {renderHook, cleanup} from '@testing-library/react-hooks';
-import * as metaWeatherAPI from '../api/metaWeatherAPI';
+import metaWeatherAPI from '../api/metaWeatherAPI';
 import {mockLocations, mockWeathers} from '../tests/mockTestingData';
 import useFetchWeatherData from './useFetchWeatherData';
 

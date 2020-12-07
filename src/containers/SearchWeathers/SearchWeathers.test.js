@@ -3,7 +3,7 @@ import {render, cleanup, screen, act, waitForElementToBeRemoved} from '@testing-
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
-import * as metaWeatherAPI from '../../api/metaWeatherAPI';
+import metaWeatherAPI from '../../api/metaWeatherAPI';
 import {mockLocations, mockWeathers} from '../../tests/mockTestingData';
 import SearchWeathers from './SearchWeathers';
 

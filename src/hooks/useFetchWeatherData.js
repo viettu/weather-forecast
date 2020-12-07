@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {getLocations, getWeathers} from '../api/metaWeatherAPI';
+import metaWetherApi from '../api/metaWeatherAPI';
 
 const useFetchWeatherData = (location) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +13,7 @@ const useFetchWeatherData = (location) => {
                 setWeatherForecasts([]);
                 setIsLoading(true);
 
-                const locationData = await getLocations(location);
+                const locationData = await metaWetherApi.getLocations(location);
                 if (!locationData || locationData.length === 0) {
                     setWeatherForecasts([]);
                     setIsLoading(false);
@@ -23,7 +23,7 @@ const useFetchWeatherData = (location) => {
                 const {woeid, title} = locationData[0];
                 setLocationTitle(title);
 
-                const weatherData = await getWeathers(woeid);
+                const weatherData = await metaWetherApi.getWeathers(woeid);
                 if (!weatherData) {
                     setWeatherForecasts([]);
                     setIsLoading(false);

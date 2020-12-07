@@ -1,26 +1,26 @@
 import Axios from 'axios';
 
 const proxy = 'https://cors-anywhere.herokuapp.com';
-const api = 'http://www.metaweather.com/api';
+const apiUrl = 'http://www.metaweather.com/api';
 
-const createAxiosRequest = () => {
-    return Axios.create({
-        baseURL: `${proxy}/${api}`,
-    });
-};
+const instance = Axios.create({
+    baseURL: `${proxy}/${apiUrl}`,
+});
 
-export const getLocations = async (searchTerm) => {
-    const response = await createAxiosRequest().get(`/location/search`, {
-        params: {
-            query: searchTerm,
-        },
-    });
-    return response.data;
-};
+const api = {
+    getLocations: async (searchTerm) => {
+        const response = await instance.get(`/location/search`, {
+            params: {
+                query: searchTerm,
+            },
+        });
+        return response.data;
+    },
 
-export const getWeathers = async (woeid) => {
-    const response = await createAxiosRequest().get(`/location/${woeid}`);
-    return response.data;
-};
+    getWeathers: async (woeid) => {
+        const response = await instance.get(`/location/${woeid}`);
+        return response.data;
+    }
+}
 
-export default createAxiosRequest;
+export default api;
