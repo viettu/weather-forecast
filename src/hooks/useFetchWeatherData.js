@@ -12,6 +12,7 @@ const useFetchWeatherData = (location) => {
             try {
                 setWeatherForecasts([]);
                 setIsLoading(true);
+                setError(null);
 
                 const locationData = await metaWetherApi.getLocations(location);
                 if (!locationData || locationData.length === 0) {
